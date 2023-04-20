@@ -11,13 +11,10 @@ public class VehicleHashMap {
 			vehicles.put("Honda", "Accord");
 			vehicles.put("Ford", "Focus");
 			
-		System.out.println("Initial Mappings are: " + vehicles);
-			
 		Scanner input = new Scanner(System.in);
 		System.out.println("What car model are you looking for?");
 		
 		String customerRequest = input.nextLine();
-//		String customerRequestMake = vehicles.get(customerRequest);
 		
 		
 		if (vehicles.containsKey(customerRequest)) {
