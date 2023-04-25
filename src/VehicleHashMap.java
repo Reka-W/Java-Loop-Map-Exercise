@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
+
 public class VehicleHashMap {
 
 	public static void main(String[] args) {
@@ -23,8 +24,6 @@ public class VehicleHashMap {
 		else if (!vehicles.containsKey(customerRequest)) {
 			System.out.println("Sorry, we're all out. But, how about I show you what we have in stock.");
 		} 
-		 
-		
+			 	
 	}
-
 }
