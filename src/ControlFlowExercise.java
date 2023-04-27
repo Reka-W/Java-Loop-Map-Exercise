@@ -38,6 +38,19 @@ public class ControlFlowExercise {
 		
 	}
 	
+	public static int clipRange(int number, int minValue, int maxValue) {
+		int numberOfValues = (maxValue - minValue) + 1;
+		while (number > maxValue) {
+			number -= numberOfValues;
+		}
+		
+		while (number < maxValue) {
+			number += numberOfValues;
+		}
+		return number;
+	}
+	
+	
 	public static void interactivePortion() {
 		Scanner nameInput = new Scanner(System.in);
 		System.out.println("Please enter your name: ");
@@ -48,7 +61,7 @@ public class ControlFlowExercise {
 		String interactiveResponse = interactivePortionInput.nextLine();
 		
 	
-		if (interactiveResponse.equalsIgnoreCase("yes") || interactiveResponse.equals("y")) {
+		if (interactiveResponse.equalsIgnoreCase("yes") || interactiveResponse.equalsIgnoreCase("y")) {
 			System.out.println("Great! Let's continue!");
 			
 			int i = 0;
@@ -56,14 +69,14 @@ public class ControlFlowExercise {
 				
 				final int MIN_RANDOM_NUMBER = 1;
 				final int MAX_RANDOM_NUMBER = 65;
-				final int MIN_MAGIC_BALL__NUMBER = 1;
-				final int MAX_MAGIC_BALL__NUMBER = 75;
+				final int MIN_MAGIC_BALL_NUMBER = 1;
+				final int MAX_MAGIC_BALL_NUMBER = 75;
 				
 				System.out.println("Do you have a red car? (yes, no):");
-				String carAnswer = interactivePortionInput.nextLine();
+				String carAnswer = interactivePortionInput.next();
 				
 				System.out.println("What is the name of your favorite pet?");
-				String petAnswer = interactivePortionInput.nextLine();
+				String petAnswer = interactivePortionInput.next();
 				
 				System.out.println("What is the age of your favorite pet?");
 				int petAgeAnswer = interactivePortionInput.nextInt();
@@ -71,7 +84,7 @@ public class ControlFlowExercise {
 				System.out.println("What is your lucky number?");
 				int luckyNumberAnswer = interactivePortionInput.nextInt();
 				
-				System.out.println("WDo you have a favorite quarterback?  If so what is their jersey number?");
+				System.out.println("Do you have a favorite quarterback?  If so what is their jersey number?");
 				int qbAnswer = interactivePortionInput.nextInt();
 				
 				System.out.println("What is two-digit model year of your car?");
@@ -92,7 +105,8 @@ public class ControlFlowExercise {
 				
 				randomNum3 = (int) (Math.random() * range) + MIN_RANDOM_NUMBER;
 				
-				int magicBall = luckyNumberAnswer * randomNum1;
+				int magicBall = clipRange(luckyNumberAnswer * randomNum1, MIN_MAGIC_BALL_NUMBER, MAX_MAGIC_BALL_NUMBER);
+				
 				
 				int nonMagic1 = carModelAnswer + luckyNumberAnswer; 
 				int nonMagic2 = (int) (Math.random() * 50 + 1) - randomNum2;
@@ -100,8 +114,54 @@ public class ControlFlowExercise {
 				int nonMagic4 = (int) faveCelebrityAnswer.charAt(faveCelebrityAnswer.length() -1);
 				int nonMagic5 = (int) faveCelebrityAnswer.charAt(0);
 				
-				System.out.printf("Lottery numbers: %d, %d %d, %d, %d  Magic ball: %d", nonMagic1,nonMagic2,nonMagic3,nonMagic4,nonMagic5, magicBall);
-				i = -1;
+				if (magicBall > MAX_MAGIC_BALL_NUMBER) {
+					magicBall = magicBall - MAX_MAGIC_BALL_NUMBER;
+				} else if (magicBall < MIN_MAGIC_BALL_NUMBER) {
+					magicBall = magicBall + MAX_MAGIC_BALL_NUMBER;
+				}
+				
+				if (nonMagic1 > MAX_RANDOM_NUMBER) {
+					nonMagic1 = nonMagic2 - MAX_RANDOM_NUMBER;
+				} else if (nonMagic1 < MIN_RANDOM_NUMBER) {
+					nonMagic1 = nonMagic1 + MAX_RANDOM_NUMBER;
+				}
+				
+				if (nonMagic2 > MAX_RANDOM_NUMBER) {
+					nonMagic2 = nonMagic2 - MAX_RANDOM_NUMBER;
+				} else if (nonMagic2 < MIN_RANDOM_NUMBER) {
+					nonMagic2 = nonMagic2 + MAX_RANDOM_NUMBER;
+				}
+				
+				if (nonMagic3 > MAX_RANDOM_NUMBER) {
+					nonMagic3 = nonMagic3 - MAX_RANDOM_NUMBER;
+				} else if (nonMagic3 < MIN_RANDOM_NUMBER) {
+					nonMagic3 = nonMagic3 + MAX_RANDOM_NUMBER;
+				}
+				
+				if (nonMagic4 > MAX_RANDOM_NUMBER) {
+					nonMagic4 = nonMagic4 - MAX_RANDOM_NUMBER;
+				} else if (nonMagic4 < MIN_RANDOM_NUMBER) {
+					nonMagic4 = nonMagic4 + MAX_RANDOM_NUMBER;
+				}
+				
+				if (nonMagic5 > MAX_RANDOM_NUMBER) {
+					nonMagic5 = nonMagic5 - MAX_RANDOM_NUMBER;
+				} else if (nonMagic5 < MIN_RANDOM_NUMBER) {
+					nonMagic5 = nonMagic5 + MAX_RANDOM_NUMBER;
+				}
+				
+				System.out.printf("Lottery numbers: %d, %d, %d, %d, %d  Magic ball: %d \n", nonMagic1,nonMagic2,nonMagic3,nonMagic4,nonMagic5, magicBall);
+				
+				
+				System.out.println("Would you like to generate another set of numbers?");
+				String playAgain = interactivePortionInput.next();
+				
+				if (playAgain.equalsIgnoreCase("yes") || playAgain.equalsIgnoreCase("y")) {
+					i= 0;
+				} else {
+					System.out.println("Thank you!");
+					i = -1;
+				}
 			}
 			 
 			
