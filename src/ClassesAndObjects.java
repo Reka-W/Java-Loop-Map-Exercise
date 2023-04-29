@@ -1,8 +1,7 @@
 public class ClassesAndObjects {
 	
 	public static void main() {
-		
-	
+		Singer Luther = new Singer();
 	}
 	
 	public class Pet {
@@ -83,14 +82,14 @@ public class ClassesAndObjects {
 			this.pronoun = pronoun;
 		}
 		
-		Singer() { }
+		public Singer() { }
 		
-		Singer(String name, String firstAlbum) {
+		public Singer(String name, String firstAlbum) {
 			this.setName(name);
 			this.setFirstAlbum(firstAlbum);
 		}
 		
-		Singer(String name, String firstAlbum, int yearBorn, String pronoun) {
+		public Singer(String name, String firstAlbum, int yearBorn, String pronoun) {
 			this.setName(name);
 			this.setFirstAlbum(firstAlbum);
 			this.setyearBorn(yearBorn);
@@ -102,7 +101,7 @@ public class ClassesAndObjects {
 		}
 		
 		public void overFifty(int age) {
-			System.out.println(age >= 50);
+			System.out.println(pronoun.equalsIgnoreCase("Her"));
 		}
 	}
 }
