@@ -1,7 +1,7 @@
 public class ClassesAndObjects {
 	
 	public static void main() {
-		Singer Luther = new Singer();
+		
 	}
 	
 	public class Pet {
