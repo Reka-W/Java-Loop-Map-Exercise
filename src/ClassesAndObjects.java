@@ -44,7 +44,7 @@ public class ClassesAndObjects {
 		}
 	}
 	
-	public class Singer {
+	public static class Singer {
 		private String name;
 		private String firstAlbum;
 		private int yearBorn;
