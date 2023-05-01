@@ -1,43 +1,14 @@
+package controlFlowExercises;
 import java.util.Scanner;
 
-public class ControlFlowExercise {
+public class InteractiveNumbersExercise {
 
 	public static void main(String[] args) {
-//		System.out.println("Hello World!");
-		
-//		AsciiChars.printNumbers();
-//		AsciiChars.printLowerCase();
-//		AsciiChars.printUpperCase();
-		
+
 		interactivePortion();
-		
-		
+			
 	}
 
-	public class AsciiChars {
-		static final int NUMBERS_COUNTED = 10;
-		static final int LETTERS_IN_ALPHABET = 26;
-		
-		public static void printNumbers() {
-			for (char i = 48; i < 48 + NUMBERS_COUNTED; i++) {
-				System.out.println(i);
-			}
-		}
-		
-		public static void printLowerCase() {
-			for (char i = 97; i < 97 + LETTERS_IN_ALPHABET; i++) {
-				System.out.println(i);
-			}
-		}
-		
-		public static void printUpperCase() {
-			for (char i = 65; i < 65 + LETTERS_IN_ALPHABET; i++) {
-				System.out.println(i);
-			}
-		}
-		
-	}
-	
 	public static int clipRange(int number, int minValue, int maxValue) {
 		int numberOfValues = (maxValue - minValue) + 1;
 		while (number > maxValue) {
@@ -50,7 +21,6 @@ public class ControlFlowExercise {
 		return number;
 	}
 	
-	
 	public static void interactivePortion() {
 		Scanner nameInput = new Scanner(System.in);
 		System.out.println("Please enter your name: ");
@@ -60,7 +30,6 @@ public class ControlFlowExercise {
 		System.out.println("Hi " + nameOfUser + ". Would you like to continue with the interactive portion?");
 		String interactiveResponse = interactivePortionInput.nextLine();
 		
-	
 		if (interactiveResponse.equalsIgnoreCase("yes") || interactiveResponse.equalsIgnoreCase("y")) {
 			System.out.println("Great! Let's continue!");
 			
@@ -107,7 +76,6 @@ public class ControlFlowExercise {
 				
 				int magicBall = clipRange(luckyNumberAnswer * randomNum1, MIN_MAGIC_BALL_NUMBER, MAX_MAGIC_BALL_NUMBER);
 				
-				
 				int nonMagic1 = carModelAnswer + luckyNumberAnswer; 
 				int nonMagic2 = (int) (Math.random() * 50 + 1) - randomNum2;
 				int nonMagic3 = qbAnswer + petAgeAnswer + luckyNumberAnswer;
@@ -152,7 +120,6 @@ public class ControlFlowExercise {
 				
 				System.out.printf("Lottery numbers: %d, %d, %d, %d, %d  Magic ball: %d \n", nonMagic1,nonMagic2,nonMagic3,nonMagic4,nonMagic5, magicBall);
 				
-				
 				System.out.println("Would you like to generate another set of numbers?");
 				String playAgain = interactivePortionInput.next();
 				
@@ -163,20 +130,11 @@ public class ControlFlowExercise {
 					i = -1;
 				}
 			}
-			 
-			
-			
+			 	
 		} else {
 			System.out.println("Please return later to complete the survey.");
-		}
-		
-		
-
-		
-		
+		}	
 	}
-	
-	
 }
 
 
